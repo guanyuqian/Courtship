@@ -37,11 +37,14 @@ $(window).resize(function() {
 	};
 })(jQuery);
 
-function timeElapse(date){
+
+function timeAnimate(word,dt,div_name){
 	var current = Date();
-	var seconds = (Date.parse(current) - Date.parse(date)) / 1000;
-	var days = Math.floor(seconds / (3600 * 24));
-	seconds = seconds % (3600 * 24);
+	var Countdown="的第 ";
+	if(Date.parse(current) < Date.parse(dt))Countdown='还剩 ';
+	var mic_seconds = Math.abs((Date.parse(current) - Date.parse(dt)) / 1000);
+	var days =  Math.floor(mic_seconds / (3600 * 24));
+	var seconds = mic_seconds % (3600 * 24);
 	var hours = Math.floor(seconds / 3600);
 	if (hours < 10) {
 		hours = "0" + hours;
@@ -55,6 +58,6 @@ function timeElapse(date){
 	if (seconds < 10) {
 		seconds = "0" + seconds;
 	}
-	var result = "第 <span class=\"digit\">" + days + "</span> 天 <span class=\"digit\">" + hours + "</span> 小时 <span class=\"digit\">" + minutes + "</span> 分钟 <span class=\"digit\">" + seconds + "</span> 秒"; 
-	$("#clock").html(result);
+	var result1 = word+Countdown+"<span class=\"digit\">" + days + "</span> 天 <span class=\"digit\">" + hours + "</span> 小时 <span class=\"digit\">" + minutes + "</span> 分钟 <span class=\"digit\">" + seconds + "</span> 秒"; 
+	$(div_name).html(result1);
 }

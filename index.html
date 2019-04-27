@@ -17,6 +17,7 @@
  </head> 
  <body> 
   <div id="main"> 
+     <audio  autoplay  controls="controls" src="love.mp3"loop="loop"  autobuffer="autobuffer"></audio> 
    <!-- <span class="say"><span class="space"><a href="index1.html" target="_self">Our Album</a><br /></span> <br /> -->
     <div id="error">
      亲爱的，你使用的浏览器无法支持即将显示的内容，请换成谷歌(
@@ -68,12 +69,17 @@
      </div> 
      <canvas id="canvas" width="1100" height="800"></canvas> 
     </div> 
-    <audio src="love.mp3" autoplay="autoplay" loop="loop"  autobuffer="autobuffer"></audio> </span>
+   
   </div> 
   <script>
     </script> 
   <script>
+
+   
+      // 触发播放
+    
        (function(){
+
         var canvas = $('#canvas');
 
         if (!canvas[0].getContext) {
